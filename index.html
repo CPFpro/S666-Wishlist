@@ -16,7 +16,7 @@
     }
     h1 {
       text-align: center;
-      color: #ff0000;          /* Rot statt Lila */
+      color: #ff0000;
       margin-bottom: 1.5rem;
       font-size: 2.8rem;
     }
@@ -52,13 +52,13 @@
       width: auto;
       height: 1.3em;
       margin-right: 0.9rem;
-      accent-color: #ff0000;   /* auch hier rot für Konsistenz */
+      accent-color: #ff0000;
     }
     button {
       margin-top: 2.5rem;
       padding: 1rem;
       font-size: 1.1rem;
-      background: #ff0000;     /* Button jetzt rot */
+      background: #ff0000;
       color: white;
       border: none;
       border-radius: 8px;
@@ -82,7 +82,7 @@
       margin: 1.5rem 0;
       padding: 1.2rem;
       background: #2a1a20;
-      border-left: 4px solid #ff0000;  /* Warnung rot */
+      border-left: 4px solid #ff0000;
       border-radius: 6px;
     }
     #noSafewordConfirmation.show {
@@ -94,7 +94,7 @@
       margin-bottom: 1rem;
     }
     .section-title {
-      color: #ff0000;          /* ALLE Überschriften jetzt rot */
+      color: #ff0000;
       margin: 2.2rem 0 1rem;
       font-size: 1.5rem;
     }
@@ -106,11 +106,9 @@
 
   <div class="card">
 
-    <form id="wishlistForm"
-          action="https://api.web3forms.com/submit"
-          method="POST">
+    <form id="wishlistForm" action="https://api.web3forms.com/submit" method="POST">
 
-      <input type="hidden" name="access_key" value="DEIN_ACCESS_KEY_HIER">
+      <input type="hidden" name="access_key" value="c4cae7a5-ae0f-4b4a-80ec-4f4c29f37185">
       <input type="hidden" name="subject" value="SLAVE 666 HOGTIE WISHLIST – Neue Einsendung">
 
       <label for="name">Trage hier deinen Namen nochmal ein</label>
@@ -207,8 +205,8 @@
 
       <div class="section-title">ERKLÄRUNG zum Auswählen</div>
       <div class="checkbox-group">
-        <label><input type="checkbox" name="Erklaerung[]" value="alles" required> JA, Sklavin 666 macht alles was von ihr verlangt wird</label>
-        <label><input type="checkbox" name="Erklaerung[]" value="demuetig" required> Ja, Sklavin 666 macht demütig alles was von ihr verlangt wird</label>
+        <label><input type="checkbox" name="Erklaerung[]" value="alles"> JA, Sklavin 666 macht alles was von ihr verlangt wird</label>
+        <label><input type="checkbox" name="Erklaerung[]" value="demuetig"> Ja, Sklavin 666 macht demütig alles was von ihr verlangt wird</label>
       </div>
 
       <button type="submit" id="submitBtn" disabled>Absenden</button>
@@ -216,8 +214,7 @@
     </form>
 
     <div id="successMsg" style="margin-top:2rem; padding:1.5rem; background:#1e1b2e; border:1px solid #ff0000; border-radius:8px; color:#d8b4fe; display:none;">
-      <strong>Danke – deine WISHLIST ist angekommen.</strong><br>
-      Ich melde mich bei dir. 🖤
+      <strong>Sklavin 666 hat die WISHLIST erfolgreich abgesendet.</strong>
     </div>
 
   </div>
@@ -255,7 +252,7 @@
 
       let erkCount = 0;
       erklaerungBoxes.forEach(cb => { if (cb.checked) erkCount++; });
-      if (erkCount < 2) valid = false;
+      if (erkCount < 1) valid = false;
 
       submitBtn.disabled = !valid;
     }
@@ -272,7 +269,11 @@
 
       validateAndUpdateButton();
       if (submitBtn.disabled) {
-        alert("Bitte alle Regeln einhalten.");
+        if (erklaerungBoxes.length > 0 && [...erklaerungBoxes].every(cb => !cb.checked)) {
+          alert("Bitte mindestens eine Erklärung auswählen.");
+        } else {
+          alert("Bitte alle Regeln einhalten.");
+        }
         return;
       }
 
@@ -291,10 +292,10 @@
           success.style.display = 'block';
           form.style.display = 'none';
         } else {
-          alert("Fehler beim Senden. Bitte später erneut versuchen.");
+          alert("Fehler beim Senden – bitte später nochmal versuchen.");
         }
       } catch (err) {
-        alert("Verbindungsproblem. Bitte später nochmal versuchen.");
+        alert("Verbindungsproblem – bitte später nochmal versuchen.");
       }
     });
   </script>
