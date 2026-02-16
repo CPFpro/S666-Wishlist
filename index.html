@@ -33,7 +33,7 @@
       font-weight: 500;
       color: #d4d4d8;
     }
-    input[type="text"], select, textarea {
+    input[type="text"], input[type="password"], select, textarea {
       width: 100%;
       padding: 0.8rem;
       border: 1px solid #444;
@@ -55,16 +55,14 @@
       accent-color: #ff0000;
     }
     button {
-      margin-top: 2.5rem;
-      padding: 1rem;
-      font-size: 1.1rem;
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
       background: #ff0000;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      width: 100%;
-      font-weight: bold;
     }
     button:disabled {
       background: #4a1a1a;
@@ -74,8 +72,30 @@
     .error {
       color: #ff4d4d;
       font-weight: bold;
-      margin: 0.5rem 0 1rem;
+      margin: 0.5rem 0;
       display: none;
+    }
+    .extreme-warning {
+      background: #2a0000;
+      border: 2px solid #ff0000;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      display: none;
+    }
+    #countdown {
+      color: #ffcc00;
+      font-weight: bold;
+      margin-top: 0.8rem;
+      display: none;
+    }
+    .extreme-info {
+      color: #ffcc00;
+      background: #2a1a00;
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 0.8rem 0 1.5rem;
+      font-weight: bold;
     }
     #noSafewordConfirmation {
       display: none;
@@ -97,6 +117,13 @@
       color: #ff0000;
       margin: 2.2rem 0 1rem;
       font-size: 1.5rem;
+    }
+    #codeSection {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #1a1a1e;
+      border-radius: 8px;
+      border: 1px solid #444;
     }
   </style>
 </head>
@@ -140,7 +167,9 @@
       <input type="text" id="gravur" name="Halsband Gravur" placeholder="">
 
       <div class="section-title">BONDAGE</div>
-      <p style="margin: 0.5rem 0 0.8rem; font-weight: bold;">BASIS HOGTIE mit Handgelenk und Knöchel Fesselung</p>
+      <p style="margin: 0.5rem 0 1rem; font-weight: bold; font-size: 1.2rem; color: #ff4d4d;">
+        BASIS HOGTIE mit Handgelenk und Knöchel Fesselung
+      </p>
       <div class="checkbox-group">
         <label><input type="checkbox" name="BondageOptionen[]" value="Ballgagharness"> Ballgagharness</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Kniefesslung"> Kniefesslung</label>
@@ -167,6 +196,8 @@
         <label><input type="checkbox" name="BondageOptionen[]" value="Rückmeldung am Körper durch Bewegungen in den Fesseln"> Rückmeldung am Körper durch Bewegungen in den Fesseln</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Statt Seile schwere Ketten, Schlösser und Hand- und Fußschellen"> Statt Seile schwere Ketten, Schlösser und Hand- und Fußschellen</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Verwendung der Gerte zur Motivation"> Verwendung der Gerte zur Motivation</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Suspension"> Suspension</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Suspension kopfüber"> Suspension kopfüber</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Anderes"> Anderes (bitte unten beschreiben)</label>
       </div>
 
@@ -181,6 +212,46 @@
         <label><input type="checkbox" name="Material[]" value="Seile Weiß"> Seile Weiß</label>
         <label><input type="checkbox" name="Material[]" value="Seile Schwarz"> Seile Schwarz</label>
         <label><input type="checkbox" name="Material[]" value="Seile Rot"> Seile Rot</label>
+      </div>
+
+      <!-- X – EXTREME ERWEITERUNG (nur mit Code 6677 zugänglich) -->
+      <div class="section-title">X – EXTREME ERWEITERUNG</div>
+
+      <div id="codeSection">
+        <p style="margin-bottom: 0.8rem; color: #ffcc00;">Zugangscode erforderlich (4-stellig):</p>
+        <input type="password" id="codeInput" placeholder="Code eingeben" maxlength="4" style="width: 120px; text-align: center;">
+        <button type="button" id="checkCodeBtn">Code prüfen</button>
+        <div id="codeError" class="error" style="margin-top: 0.5rem;">Falscher Code</div>
+      </div>
+
+      <div id="xContainer" style="display: none;">
+        <div class="extreme-info">
+          <strong>Wichtig:</strong> Dieser Block kann <strong>nur einmal</strong> geöffnet werden. Wenn du keine Auswahl triffst, schließt er sich nach 10 Sekunden automatisch und lässt sich danach <strong>nicht mehr öffnen</strong>. Wähle bewusst und schnell!
+        </div>
+        <label style="font-weight: bold; color: #ff4d4d;">
+          <input type="checkbox" id="extremeX" name="Extreme[]" value="X">
+          X – Ich möchte die extreme Erweiterung aktivieren
+        </label>
+
+        <div id="extremeOptions" class="extreme-warning">
+          <strong style="color: #ff0000; font-size: 1.2rem;">Bist du dir wirklich sicher?</strong><br>
+          Diese Auswahl ist extrem intensiv.
+          <div class="checkbox-group" style="margin-top: 1rem;">
+            <label><input type="checkbox" name="Extreme[]" value="PLUG Vaginal"> PLUG Vaginal</label>
+            <label><input type="checkbox" name="Extreme[]" value="PLUG ANAL"> PLUG ANAL</label>
+            <label><input type="checkbox" name="Extreme[]" value="HOOK ANAL"> HOOK ANAL</label>
+            <label><input type="checkbox" name="Extreme[]" value="TIEFER ORAL KNEBEL"> TIEFER ORAL KNEBEL</label>
+            <label><input type="checkbox" name="Extreme[]" value="Breathcontrol"> Breathcontrol</label>
+            <label><input type="checkbox" name="Extreme[]" value="Leichte verbale Erniedrigung"> Leichte verbale Erniedrigung</label>
+            <label><input type="checkbox" name="Extreme[]" value="Extreme Erniedrigung"> Extreme Erniedrigung</label>
+            <label><input type="checkbox" name="Extreme[]" value="Nippelklammern"> Nippelklammern</label>
+            <label><input type="checkbox" name="Extreme[]" value="Nippelklammern mit Zug"> Nippelklammern mit Zug</label>
+            <label><input type="checkbox" name="Extreme[]" value="Leichte Nutzung der Gerte"> Leichte Nutzung der Gerte</label>
+            <label><input type="checkbox" name="Extreme[]" value="Gesunde Nutzung der Gerte"> Gesunde Nutzung der Gerte</label>
+            <label><input type="checkbox" name="Extreme[]" value="SklavinnenPositionen"> SklavinnenPositionen</label>
+          </div>
+          <div id="countdown" style="margin-top: 1rem;">Block schließt sich in <span id="seconds">10</span> Sekunden...</div>
+        </div>
       </div>
 
       <div class="section-title">Selbstdefinition (Mehrfachauswahl möglich)</div>
@@ -200,7 +271,8 @@
 
       <div id="noSafewordConfirmation">
         <div class="warning-text">WICHTIG – KEIN SAFEWORD</div>
-        <p>Ich bestätige ausdrücklich und bewusst, kein Safeword haben zu wollen und bin mir aller Konsequenzen vollumfänglich bewusst.</p>
+        <p>Ich bestätige ausdrücklich und bewusst, kein Safeword haben zu wollen und bin mir aller Konsequenzen vollumfänglich bewusst.<br>
+        <strong style="color: #ffcc00;">gibt es absolut keine Reaktion zum Befreien durch Schreie, Laute, Bewegungen oder ähnliches. Das gilt auch bei extremen Situationen!</strong></p>
         <label style="margin-top: 1rem; font-weight: bold; color: #ffcc00;">
           <input type="checkbox" id="confirmNoSafeword">
           Ja, ich bestätige das ausdrücklich und freiwillig
@@ -234,7 +306,60 @@
     const noSafewordDiv    = document.getElementById('noSafewordConfirmation');
     const erklaerungBoxes  = document.querySelectorAll('input[name="Erklaerung[]"]');
 
+    const codeInput        = document.getElementById('codeInput');
+    const checkCodeBtn     = document.getElementById('checkCodeBtn');
+    const codeError        = document.getElementById('codeError');
+    const codeSection      = document.getElementById('codeSection');
+    const xContainer       = document.getElementById('xContainer');
+    const extremeX         = document.getElementById('extremeX');
+    const extremeOptions   = document.getElementById('extremeOptions');
+    const countdownEl      = document.getElementById('countdown');
+    const secondsEl        = document.getElementById('seconds');
+
     const rolleError = document.getElementById('rolleError');
+
+    let countdownTimer = null;
+    let extremeOpenedOnce = false;
+
+    // Code-Prüfung nur für X-Block (6677)
+    checkCodeBtn.addEventListener('click', () => {
+      if (codeInput.value === '6677') {
+        codeSection.style.display = 'none';
+        xContainer.style.display = 'block';
+        codeError.style.display = 'none';
+      } else {
+        codeError.style.display = 'block';
+      }
+    });
+
+    codeInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        checkCodeBtn.click();
+      }
+    });
+
+    function startCountdown() {
+      if (countdownTimer) clearInterval(countdownTimer);
+
+      let timeLeft = 10;
+      secondsEl.textContent = timeLeft;
+      countdownEl.style.display = 'block';
+
+      countdownTimer = setInterval(() => {
+        timeLeft--;
+        secondsEl.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownTimer);
+          countdownEl.style.display = 'none';
+          extremeX.checked = false;
+          extremeOptions.style.display = 'none';
+          extremeX.disabled = true;
+          extremeOpenedOnce = true;
+          validateAndUpdateButton();
+        }
+      }, 1000);
+    }
 
     function validateAndUpdateButton() {
       let valid = true;
@@ -258,6 +383,14 @@
       erklaerungBoxes.forEach(cb => { if (cb.checked) erkCount++; });
       if (erkCount < 1) valid = false;
 
+      if (extremeX.checked && !extremeOpenedOnce) {
+        extremeOptions.style.display = 'block';
+      } else {
+        extremeOptions.style.display = 'none';
+        countdownEl.style.display = 'none';
+        if (countdownTimer) clearInterval(countdownTimer);
+      }
+
       submitBtn.disabled = !valid;
     }
 
@@ -265,6 +398,47 @@
     safewordSelect.addEventListener('change', validateAndUpdateButton);
     confirmNoSafeword.addEventListener('change', validateAndUpdateButton);
     erklaerungBoxes.forEach(c => c.addEventListener('change', validateAndUpdateButton));
+
+    extremeX.addEventListener('change', () => {
+      if (extremeX.checked) {
+        if (extremeOpenedOnce) {
+          extremeX.checked = false;
+          alert("X kann nur einmal geöffnet werden.");
+          return;
+        }
+        extremeOptions.style.display = 'block';
+        let anyExtremeChecked = false;
+        document.querySelectorAll('input[name="Extreme[]"]').forEach(cb => {
+          if (cb !== extremeX && cb.checked) anyExtremeChecked = true;
+        });
+        if (!anyExtremeChecked) {
+          startCountdown();
+        }
+      } else {
+        extremeOptions.style.display = 'none';
+        countdownEl.style.display = 'none';
+        if (countdownTimer) clearInterval(countdownTimer);
+      }
+      validateAndUpdateButton();
+    });
+
+    document.querySelectorAll('input[name="Extreme[]"]').forEach(cb => {
+      if (cb !== extremeX) {
+        cb.addEventListener('change', () => {
+          if (extremeX.checked) {
+            let anyChecked = false;
+            document.querySelectorAll('input[name="Extreme[]"]').forEach(c => {
+              if (c !== extremeX && c.checked) anyChecked = true;
+            });
+            if (anyChecked && countdownTimer) {
+              clearInterval(countdownTimer);
+              countdownEl.style.display = 'none';
+            }
+          }
+          validateAndUpdateButton();
+        });
+      }
+    });
 
     validateAndUpdateButton();
 
@@ -292,6 +466,9 @@
         if (response.ok) {
           form.reset();
           noSafewordDiv.classList.remove('show');
+          extremeOptions.style.display = 'none';
+          countdownEl.style.display = 'none';
+          if (countdownTimer) clearInterval(countdownTimer);
           submitBtn.disabled = true;
           success.style.display = 'block';
           form.style.display = 'none';
