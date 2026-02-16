@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SLAVE 666 HOGTIE WISHLIST</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 720px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #0f0f11;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #ff0000;          /* Rot statt Lila */
+      margin-bottom: 1.5rem;
+      font-size: 2.8rem;
+    }
+    .card {
+      background: #1a1a1e;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #333;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    label {
+      display: block;
+      margin: 1.4rem 0 0.4rem;
+      font-weight: 500;
+      color: #d4d4d8;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #111;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      cursor: pointer;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+      height: 1.3em;
+      margin-right: 0.9rem;
+      accent-color: #ff0000;   /* auch hier rot für Konsistenz */
+    }
+    button {
+      margin-top: 2.5rem;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background: #ff0000;     /* Button jetzt rot */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+    button:disabled {
+      background: #4a1a1a;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .error {
+      color: #ff4d4d;
+      font-weight: bold;
+      margin: 0.5rem 0 1rem;
+      display: none;
+    }
+    #noSafewordConfirmation {
+      display: none;
+      margin: 1.5rem 0;
+      padding: 1.2rem;
+      background: #2a1a20;
+      border-left: 4px solid #ff0000;  /* Warnung rot */
+      border-radius: 6px;
+    }
+    #noSafewordConfirmation.show {
+      display: block;
+    }
+    .warning-text {
+      color: #ffcc00;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      color: #ff0000;          /* ALLE Überschriften jetzt rot */
+      margin: 2.2rem 0 1rem;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SLAVE 666 HOGTIE WISHLIST</h1>
+
+  <div class="card">
+
+    <form id="wishlistForm"
+          action="https://api.web3forms.com/submit"
+          method="POST">
+
+      <input type="hidden" name="access_key" value="DEIN_ACCESS_KEY_HIER">
+      <input type="hidden" name="subject" value="SLAVE 666 HOGTIE WISHLIST – Neue Einsendung">
+
+      <label for="name">Trage hier deinen Namen nochmal ein</label>
+      <input type="text" id="name" name="Name" required placeholder="Sklavin 666">
+
+      <div class="section-title">Deine primäre Rolle</div>
+      <div class="checkbox-group">
+        <label><input type="radio" name="Rolle" value="SUBMISSIV" required> SUBMISSIV</label>
+        <label><input type="radio" name="Rolle" value="DOMINANT"> DOMINANT</label>
+      </div>
+      <div id="rolleError" class="error"></div>
+
+      <div class="section-title">OUTFIT</div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="Outfit[]" value="Catsuit Gold"> Catsuit Gold, Unterbrustkorsett Lack Schwarz</label>
+        <label><input type="checkbox" name="Outfit[]" value="Catsuit Grau"> Catsuit Grau, Unterbrustkorsett Lack Schwarz</label>
+        <label><input type="checkbox" name="Outfit[]" value="Catsuit Schwarz"> Catsuit Schwarz, Unterbrustkorsett Lack Schwarz</label>
+      </div>
+
+      <div class="section-title">OUTFIT OPTIONEN</div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="OutfitOptionen[]" value="Balletheels"> Balletheels</label>
+        <label><input type="checkbox" name="OutfitOptionen[]" value="HighHeelPumps mit Nylonfuß"> HighHeelPumps mit Nylonfuß</label>
+        <label><input type="checkbox" name="OutfitOptionen[]" value="Halsband Leder"> Halsband Leder</label>
+        <label><input type="checkbox" name="OutfitOptionen[]" value="Halsband Eisen"> Halsband Eisen</label>
+      </div>
+
+      <label for="gravur">Gravur für Halsband</label>
+      <input type="text" id="gravur" name="Halsband Gravur" placeholder="">
+
+      <div class="section-title">BONDAGE</div>
+      <p style="margin: 0.5rem 0 0.8rem; font-weight: bold;">BASIS-HOGTIE mit Handgelenk und Knöchel Fesselung</p>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="BondageOptionen[]" value="Ballgagharness"> Ballgagharness</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Kniefesslung"> Kniefesslung</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Oberschenkelfesslung"> Oberschenkelfesslung</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Oberkörperfesslung"> Oberkörperfesslung</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Brustfesslung"> Brustfesslung</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Taille"> Taille</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Taille mit festem Schrittseil"> Taille mit festem Schrittseil</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Schrittseil mit Verbindung zu Händen"> Schrittseil mit Verbindung zu Händen</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Schrittseil mit Verbindung zu Füßen"> Schrittseil mit Verbindung zu Füßen</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Schrittseil mit Verbindung zum Kopf"> Schrittseil mit Verbindung zum Kopf</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Schrittseil mit Verbindung zum Hals"> Schrittseil mit Verbindung zum Hals</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Seil am Hals"> Seil am Hals</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Langes verweilen in der fertigen Bondage"> Langes verweilen in der fertigen Bondage</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Lederaugenbinde"> Lederaugenbinde</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Latexhaube (Augen, Mund, Nase frei)"> Latexhaube (Augen, Mund, Nase frei)</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Latexmaske (Mund, Nase frei)"> Latexmaske (Mund, Nase frei)</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Aufrecht auf Knien"> Aufrecht auf Knien</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Aufrecht auf Knien, fixiert über Hals und Decke"> Aufrecht auf Knien, fixiert über Hals und Decke</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Komplettfesselung ausgestreckt auf Boden"> Komplettfesselung ausgestreckt auf Boden</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Komplettfesselung stehend, fixiert an Stange"> Komplettfesselung stehend, fixiert an Stange</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Komplettfesselung stehend, fixiert über Hals an Decke"> Komplettfesselung stehend, fixiert über Hals an Decke</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Anderes"> Anderes (bitte unten beschreiben)</label>
+      </div>
+
+      <label for="bondage_eigen">Eigener Wunsch / zusätzliche Bondage-Ideen</label>
+      <textarea id="bondage_eigen" name="Bondage Eigener Wunsch" rows="3" placeholder=""></textarea>
+
+      <div class="section-title">Material</div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="Material[]" value="Ketten"> Ketten</label>
+        <label><input type="checkbox" name="Material[]" value="Handschellen"> Handschellen</label>
+        <label><input type="checkbox" name="Material[]" value="Lederriemen"> Lederriemen</label>
+        <label><input type="checkbox" name="Material[]" value="Seile Weiß"> Seile Weiß</label>
+        <label><input type="checkbox" name="Material[]" value="Seile Schwarz"> Seile Schwarz</label>
+        <label><input type="checkbox" name="Material[]" value="Seile Rot"> Seile Rot</label>
+      </div>
+
+      <div class="section-title">Selbstdefinition (Mehrfachauswahl möglich)</div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="Selbstdefinition[]" value="DEVOT"> DEVOT</label>
+        <label><input type="checkbox" name="Selbstdefinition[]" value="STARK DEVOT"> STARK DEVOT</label>
+        <label><input type="checkbox" name="Selbstdefinition[]" value="MASO"> MASO</label>
+        <label><input type="checkbox" name="Selbstdefinition[]" value="STARK MASO"> STARK MASO</label>
+      </div>
+
+      <div class="section-title">SAFE WORD</div>
+      <select id="safeword" name="Safe Word" required>
+        <option value="" disabled selected>bitte wählen …</option>
+        <option value="ROT; GELB; GRÜN">ROT; GELB; GRÜN</option>
+        <option value="Kein Safeword">Kein Safeword</option>
+      </select>
+
+      <div id="noSafewordConfirmation">
+        <div class="warning-text">WICHTIG – KEIN SAFEWORD</div>
+        <p>Ich bestätige ausdrücklich und bewusst, kein Safeword haben zu wollen und bin mir aller Konsequenzen vollumfänglich bewusst.</p>
+        <label style="margin-top: 1rem; font-weight: bold; color: #ffcc00;">
+          <input type="checkbox" id="confirmNoSafeword">
+          Ja, ich bestätige das ausdrücklich und freiwillig
+        </label>
+      </div>
+
+      <div class="section-title">ERKLÄRUNG zum Auswählen</div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="Erklaerung[]" value="alles" required> JA, Sklavin 666 macht alles was von ihr verlangt wird</label>
+        <label><input type="checkbox" name="Erklaerung[]" value="demuetig" required> Ja, Sklavin 666 macht demütig alles was von ihr verlangt wird</label>
+      </div>
+
+      <button type="submit" id="submitBtn" disabled>Absenden</button>
+
+    </form>
+
+    <div id="successMsg" style="margin-top:2rem; padding:1.5rem; background:#1e1b2e; border:1px solid #ff0000; border-radius:8px; color:#d8b4fe; display:none;">
+      <strong>Danke – deine WISHLIST ist angekommen.</strong><br>
+      Ich melde mich bei dir. 🖤
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('wishlistForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const success = document.getElementById('successMsg');
+
+    const rolleRadios      = document.querySelectorAll('input[name="Rolle"]');
+    const safewordSelect   = document.getElementById('safeword');
+    const confirmNoSafeword = document.getElementById('confirmNoSafeword');
+    const noSafewordDiv    = document.getElementById('noSafewordConfirmation');
+    const erklaerungBoxes  = document.querySelectorAll('input[name="Erklaerung[]"]');
+
+    const rolleError = document.getElementById('rolleError');
+
+    function validateAndUpdateButton() {
+      let valid = true;
+
+      let rolle = document.querySelector('input[name="Rolle"]:checked')?.value;
+      if (rolle === 'DOMINANT') {
+        rolleError.textContent = "Falsche Eingabe von Sklavin 666";
+        rolleError.style.display = 'block';
+        valid = false;
+      } else if (rolle) {
+        rolleError.style.display = 'none';
+      }
+
+      const sw = safewordSelect.value;
+      noSafewordDiv.classList.toggle('show', sw === 'Kein Safeword');
+      if (sw === 'Kein Safeword' && !confirmNoSafeword.checked) {
+        valid = false;
+      }
+
+      let erkCount = 0;
+      erklaerungBoxes.forEach(cb => { if (cb.checked) erkCount++; });
+      if (erkCount < 2) valid = false;
+
+      submitBtn.disabled = !valid;
+    }
+
+    rolleRadios.forEach(r => r.addEventListener('change', validateAndUpdateButton));
+    safewordSelect.addEventListener('change', validateAndUpdateButton);
+    confirmNoSafeword.addEventListener('change', validateAndUpdateButton);
+    erklaerungBoxes.forEach(c => c.addEventListener('change', validateAndUpdateButton));
+
+    validateAndUpdateButton();
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      validateAndUpdateButton();
+      if (submitBtn.disabled) {
+        alert("Bitte alle Regeln einhalten.");
+        return;
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          noSafewordDiv.classList.remove('show');
+          submitBtn.disabled = true;
+          success.style.display = 'block';
+          form.style.display = 'none';
+        } else {
+          alert("Fehler beim Senden. Bitte später erneut versuchen.");
+        }
+      } catch (err) {
+        alert("Verbindungsproblem. Bitte später nochmal versuchen.");
+      }
+    });
+  </script>
+
+</body>
+</html>
