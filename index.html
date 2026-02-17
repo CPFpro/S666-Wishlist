@@ -33,7 +33,7 @@
       font-weight: 500;
       color: #d4d4d8;
     }
-    input[type="text"], input[type="password"], select, textarea {
+    input[type="text"], input[type="password"], select, textarea, input[type="hidden"] {
       width: 100%;
       padding: 0.8rem;
       border: 1px solid #444;
@@ -162,6 +162,9 @@
       <input type="hidden" name="access_key" value="c4cae7a5-ae0f-4b4a-80ec-4f4c29f37185">
       <input type="hidden" name="subject" value="SLAVE 666 HOGTIE WISHLIST – Neue Einsendung">
 
+      <!-- Verstecktes Feld → alle ausgewählten Extreme-Optionen landen hier und in der E-Mail -->
+      <input type="hidden" name="extreme_options" id="extreme_options_hidden" value="">
+
       <label for="name">Trage hier deinen Namen nochmal ein</label>
       <input type="text" id="name" name="Name" required placeholder="Sklavin 666">
 
@@ -247,7 +250,6 @@
         <label><input type="checkbox" name="Material[]" value="Seile Rot"> Seile Rot</label>
       </div>
 
-      <!-- X – EXTREME ERWEITERUNG -->
       <div class="section-title">X – EXTREME ERWEITERUNG</div>
 
       <div id="codeSection">
@@ -376,6 +378,7 @@
       const submitBtn = document.getElementById('submitBtn');
       const success = document.getElementById('successMsg');
       const extremeList = document.getElementById('extremeList');
+      const extremeHidden = document.getElementById('extreme_options_hidden');
 
       const rolleRadios      = document.querySelectorAll('input[name="Rolle"]');
       const safewordSelect   = document.getElementById('safeword');
@@ -532,16 +535,23 @@
             return;
           }
 
-          // Sammle alle ausgewählten Extreme-Optionen für die E-Mail / Erfolgsmeldung
+          // Sammle alle ausgewählten Extreme-Optionen (Labels)
           const extremeSelected = [];
           document.querySelectorAll('#extremeOptions input[type="checkbox"]:checked').forEach(cb => {
-            if (cb.value !== 'X') { // Die "X aktivieren"-Checkbox selbst ausschließen
+            if (cb.value !== 'X') { // Haupt-Checkbox "X" ausschließen
               const labelText = cb.parentElement.textContent.trim();
               extremeSelected.push(labelText);
             }
           });
 
-          // In die Erfolgsmeldung schreiben (wird auch in der E-Mail sichtbar)
+          // Für die E-Mail: Komma-separierte Liste in verstecktes Feld schreiben
+          if (extremeHidden) {
+            extremeHidden.value = extremeSelected.length > 0 
+              ? extremeSelected.join(', ') 
+              : 'Keine extremen Optionen ausgewählt';
+          }
+
+          // Für die sichtbare Erfolgsmeldung (optional, aber schön zur Kontrolle)
           if (extremeList) {
             if (extremeSelected.length > 0) {
               extremeList.innerHTML = extremeSelected.map(item => '• ' + item).join('<br>');
