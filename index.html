@@ -5,24 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SLAVE 666 HOGTIE WISHLIST</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 1rem; background: #0f0f11; color: #e5e5e5; line-height: 1.6; }
-    h1 { text-align: center; color: #ff0000; margin-bottom: 1.5rem; font-size: 2.8rem; }
-    .card { background: #1a1a1e; padding: 2rem; border-radius: 12px; border: 1px solid #333; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-    label { display: block; margin: 1.4rem 0 0.4rem; font-weight: 500; color: #d4d4d8; }
-    input[type="text"], input[type="password"], select, textarea { width: 100%; padding: 0.8rem; border: 1px solid #444; border-radius: 6px; background: #111; color: #fff; font-size: 1rem; }
-    .checkbox-group label { display: flex; align-items: center; margin: 0.5rem 0; cursor: pointer; }
-    input[type="checkbox"], input[type="radio"] { width: auto; height: 1.3em; margin-right: 0.9rem; accent-color: #ff0000; }
-    button { margin-top: 1rem; padding: 0.8rem 1.2rem; font-size: 1rem; background: #ff0000; color: white; border: none; border-radius: 6px; cursor: pointer; }
-    button:disabled { background: #4a1a1a; cursor: not-allowed; opacity: 0.6; }
-    .error { color: #ff4d4d; font-weight: bold; margin: 0.5rem 0; display: none; }
-    .extreme-warning { background: #2a0000; border: 2px solid #ff0000; padding: 1rem; border-radius: 8px; margin: 1rem 0; display: none; }
-    #countdown { color: #ffcc00; font-weight: bold; margin-top: 0.8rem; display: none; }
-    .extreme-info { color: #ffcc00; background: #2a1a00; padding: 1rem; border-radius: 6px; margin: 0.8rem 0 1.5rem; font-weight: bold; }
-    #noSafewordConfirmation { display: none; margin: 1.5rem 0; padding: 1.2rem; background: #2a1a20; border-left: 4px solid #ff0000; border-radius: 6px; }
-    #noSafewordConfirmation.show { display: block; }
-    .warning-text { color: #ffcc00; font-weight: bold; margin-bottom: 1rem; }
-    .section-title { color: #ff0000; margin: 2.2rem 0 1rem; font-size: 1.5rem; }
-    #codeSection { margin: 1.5rem 0; padding: 1rem; background: #1a1a1e; border-radius: 8px; border: 1px solid #444; }
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 720px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #0f0f11;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #ff0000;
+      margin-bottom: 1.5rem;
+      font-size: 2.8rem;
+    }
+    .card {
+      background: #1a1a1e;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #333;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    label {
+      display: block;
+      margin: 1.4rem 0 0.4rem;
+      font-weight: 500;
+      color: #d4d4d8;
+    }
+    input[type="text"], input[type="password"], select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #111;
+      color: #fff;
+      font-size: 1rem;
+    }
+    textarea#persoenliche_anmerkungen,
+    textarea#extreme_eigener_wunsch {
+      background: #0d0d0f;
+      border: 1px solid #555;
+      min-height: 120px;
+      resize: vertical;
+    }
+    textarea:focus {
+      border-color: #ff0000;
+      outline: none;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      cursor: pointer;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+      height: 1.3em;
+      margin-right: 0.9rem;
+      accent-color: #ff0000;
+    }
+    button {
+      margin-top: 2.5rem;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+    button:disabled {
+      background: #4a1a1a;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .error {
+      color: #ff4d4d;
+      font-weight: bold;
+      margin: 0.5rem 0;
+      display: none;
+    }
+    .extreme-warning {
+      background: #2a0000;
+      border: 2px solid #ff0000;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      display: none;
+    }
+    #countdown {
+      color: #ffcc00;
+      font-weight: bold;
+      margin-top: 0.8rem;
+      display: none;
+    }
+    .extreme-info {
+      color: #ffcc00;
+      background: #2a1a00;
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 0.8rem 0 1.5rem;
+      font-weight: bold;
+    }
+    #noSafewordConfirmation {
+      display: none;
+      margin: 1.5rem 0;
+      padding: 1.2rem;
+      background: #2a1a20;
+      border-left: 4px solid #ff0000;
+      border-radius: 6px;
+    }
+    #noSafewordConfirmation.show {
+      display: block;
+    }
+    .warning-text {
+      color: #ffcc00;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      color: #ff0000;
+      margin: 2.2rem 0 1rem;
+      font-size: 1.5rem;
+    }
+    #codeSection {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #1a1a1e;
+      border-radius: 8px;
+      border: 1px solid #444;
+    }
+    #anmerkungenSection {
+      margin: 2rem 0 1rem;
+      padding: 1rem;
+      background: #111;
+      border: 1px solid #555;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +221,10 @@
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification teilweise"> Mummification (teilweise / Oberkörper)</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification mit Breathplay"> Mummification mit Breathplay-Elementen</label>
 
+        <!-- Neu hinzugefügt -->
+        <label><input type="checkbox" name="BondageOptionen[]" value="Sklavin Position"> Sklavin Position</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Sklavin Position devot"> Sklavin Position devot</label>
+
         <label><input type="checkbox" name="BondageOptionen[]" value="Suspension"> Suspension</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Suspension kopfüber"> Suspension kopfüber</label>
 
@@ -158,7 +284,17 @@
             <label><input type="checkbox" name="Extreme[]" value="Strangulation"> Strangulation</label>
             <label><input type="checkbox" name="Extreme[]" value="Käfig"> Käfig</label>
             <label><input type="checkbox" name="Extreme[]" value="Völligen Kontrollverlust"> Völligen Kontrollverlust</label>
+            <!-- Neu hinzugefügt -->
+            <label><input type="checkbox" name="Extreme[]" value="Training zur Sklavin"> Training zur Sklavin</label>
+            <label><input type="checkbox" name="Extreme[]" value="härtere Gangart im Shooting"> härtere Gangart im Shooting</label>
           </div>
+
+          <!-- Eigenen Wunsch Eingabefeld im X-Block -->
+          <label for="extreme_eigener_wunsch" style="display: block; margin-top: 1.5rem; font-weight: bold; color: #ffcc00;">
+            Eigener Wunsch / weitere extreme Idee:
+          </label>
+          <textarea id="extreme_eigener_wunsch" name="extreme_eigener_wunsch" rows="3" placeholder="Hier kannst du eigene extreme Wünsche oder Ideen eintragen..."></textarea>
+
           <div id="countdown" style="margin-top: 1rem;">Block schließt sich in <span id="seconds">10</span> Sekunden...</div>
         </div>
       </div>
@@ -194,12 +330,27 @@
         <label><input type="checkbox" name="Erklaerung[]" value="demuetig"> Ja, Sklavin 666 macht demütig alles was von ihr verlangt wird</label>
       </div>
 
+      <!-- Persönliche Anmerkungen -->
+      <div id="anmerkungenSection">
+        <label for="persoenliche_anmerkungen" style="font-weight: bold; color: #ff9999;">
+          Persönliche Anmerkungen / Zusätzliche Wünsche / Notizen
+        </label>
+        <textarea id="persoenliche_anmerkungen" name="persoenliche_anmerkungen" rows="5" placeholder="Hier kannst du alles schreiben, was dir wichtig ist... (optional)"></textarea>
+      </div>
+
       <button type="submit" id="submitBtn" disabled>Absenden</button>
 
     </form>
 
     <div id="successMsg" style="margin-top:2rem; padding:1.5rem; background:#1e1b2e; border:1px solid #ff0000; border-radius:8px; color:#d8b4fe; display:none;">
-      <strong>Sklavin 666 hat die WISHLIST erfolgreich abgesendet. Die extem devoten und masochistischen Neigungen werden beim Shooting einfluß nehmen.!!!Anweisung: Sklavin 666 erscheint vortan Vollrasiert und komplett gewaschen zum Termin. Sklavin 666 nimmt stets die Sklavinposition ein!!!!  .</strong>
+      <strong>Sklavin 666 hat die WISHLIST erfolgreich abgesendet.<br><br>
+      Auswertung<br>
+      Sklavin 666 ist eine extrem devote Masochistin.<br>
+      Ihre Neigungen sind stark ausgeprägt.<br><br>
+      Die Wünsche werden berücksichtigt!<br><br>
+      !!!Anweisung an Sklavin 666!!!<br>
+      Sklavin 666 erscheint stets devot, geschminkt, vollrasiert und komplett (innen) gewaschen zum Termin.<br>
+      Sklavin 666 nimmt die Sklavinposition ein!!!!.</strong>
     </div>
 
   </div>
@@ -230,8 +381,9 @@
     let countdownTimer = null;
     let extremeOpenedOnce = false;
 
+    // Code jetzt 2106
     checkCodeBtn.addEventListener('click', () => {
-      if (codeInput.value === '6677') {
+      if (codeInput.value === '2106') {
         codeSection.style.display = 'none';
         xContainer.style.display = 'block';
         codeError.style.display = 'none';
