@@ -247,6 +247,7 @@
         <label><input type="checkbox" name="Material[]" value="Seile Rot"> Seile Rot</label>
       </div>
 
+      <!-- X – EXTREME ERWEITERUNG -->
       <div class="section-title">X – EXTREME ERWEITERUNG</div>
 
       <div id="codeSection">
@@ -290,6 +291,19 @@
             <label><input type="checkbox" name="Extreme[]" value="härtere Gangart im Shooting"> härtere Gangart im Shooting</label>
             <label><input type="checkbox" name="Extreme[]" value="Öffnen aller Reißverschlüße"> Öffnen aller Reißverschlüße</label>
             <label><input type="checkbox" name="Extreme[]" value="Seile bzw. Ketten tief durch den Schritt gezogen"> Seile bzw. Ketten tief durch den Schritt gezogen</label>
+            <!-- Neu hinzugefügt -->
+            <label><input type="checkbox" name="Extreme[]" value="sehr lange verweildauer in der fertigen Bondage"> sehr lange verweildauer in der fertigen Bondage</label>
+            <label><input type="checkbox" name="Extreme[]" value="Zwang zum Höhepunkt"> Zwang zum Höhepunkt</label>
+            <label><input type="checkbox" name="Extreme[]" value="Verbot des Höhepunktes"> Verbot des Höhepunktes</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo"> Dildo</label>
+            <label><input type="checkbox" name="Extreme[]" value="Vibrator"> Vibrator</label>
+            <label><input type="checkbox" name="Extreme[]" value="Elektro Nippel"> Elektro Nippel</label>
+            <label><input type="checkbox" name="Extreme[]" value="Elektro Vaginal"> Elektro Vaginal</label>
+            <label><input type="checkbox" name="Extreme[]" value="Elektro Anal"> Elektro Anal</label>
+            <label><input type="checkbox" name="Extreme[]" value="Halsband mit ElektroShock"> Halsband mit ElektroShock</label>
+            <label><input type="checkbox" name="Extreme[]" value="Selfpenetration Vaginal"> Selfpenetration Vaginal</label>
+            <label><input type="checkbox" name="Extreme[]" value="Selfpenetration Anal"> Selfpenetration Anal</label>
+            <label><input type="checkbox" name="Extreme[]" value="Selfpenetration Oral"> Selfpenetration Oral</label>
           </div>
 
           <div id="countdown" style="margin-top: 1rem;">Block schließt sich in <span id="seconds">10</span> Sekunden...</div>
@@ -344,8 +358,6 @@
       Sklavin 666 ist eine extrem devote Masochistin.<br>
       Ihre Neigungen sind stark ausgeprägt.<br><br>
       Die Wünsche werden berücksichtigt!<br><br>
-      KEIN SAFEWORD<br><br>
-      TUT DEMÜTIG ALLES!!<br><br> 
       !!!Anweisung an Sklavin 666!!!<br>
       Sklavin 666 erscheint stets devot, geschminkt, entleerter Blase, vollrasiert und komplett (innen) gewaschen zum Termin.<br>
       Sklavin 666 nimmt die Sklavinposition ein!!!!.</strong>
@@ -354,7 +366,6 @@
   </div>
 
   <script>
-    // Alles erst ausführen, wenn das DOM vollständig geladen ist
     document.addEventListener('DOMContentLoaded', function() {
 
       const form = document.getElementById('wishlistForm');
@@ -383,12 +394,10 @@
       let extremeOpenedOnce = false;
       let timeLeft = 10;
 
-      // Schutz: Wenn safeword nicht gefunden → Warnung in Konsole
       if (!safewordSelect) {
         console.warn('Element mit id="safeword" wurde nicht gefunden!');
       }
 
-      // Code-Prüfung (2106)
       if (checkCodeBtn) {
         checkCodeBtn.addEventListener('click', () => {
           if (codeInput && codeInput.value === '2106') {
@@ -403,9 +412,7 @@
 
       if (codeInput) {
         codeInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') {
-            checkCodeBtn.click();
-          }
+          if (e.key === 'Enter') checkCodeBtn.click();
         });
       }
 
