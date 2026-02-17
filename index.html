@@ -65,6 +65,10 @@
       margin-right: 0.9rem;
       accent-color: #ff0000;
     }
+    input[type="checkbox"][disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
     button {
       margin-top: 2.5rem;
       padding: 1rem;
@@ -221,7 +225,6 @@
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification teilweise"> Mummification (teilweise / Oberkörper)</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification mit Breathplay"> Mummification mit Breathplay-Elementen</label>
 
-        <!-- Neu hinzugefügt -->
         <label><input type="checkbox" name="BondageOptionen[]" value="Sklavin Position"> Sklavin Position</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Sklavin Position devot"> Sklavin Position devot</label>
 
@@ -244,7 +247,6 @@
         <label><input type="checkbox" name="Material[]" value="Seile Rot"> Seile Rot</label>
       </div>
 
-      <!-- X – EXTREME ERWEITERUNG -->
       <div class="section-title">X – EXTREME ERWEITERUNG</div>
 
       <div id="codeSection">
@@ -284,16 +286,11 @@
             <label><input type="checkbox" name="Extreme[]" value="Strangulation"> Strangulation</label>
             <label><input type="checkbox" name="Extreme[]" value="Käfig"> Käfig</label>
             <label><input type="checkbox" name="Extreme[]" value="Völligen Kontrollverlust"> Völligen Kontrollverlust</label>
-            <!-- Neu hinzugefügt -->
             <label><input type="checkbox" name="Extreme[]" value="Training zur Sklavin"> Training zur Sklavin</label>
             <label><input type="checkbox" name="Extreme[]" value="härtere Gangart im Shooting"> härtere Gangart im Shooting</label>
+            <label><input type="checkbox" name="Extreme[]" value="Öffnen aller Reißverschlüße"> Öffnen aller Reißverschlüße</label>
+            <label><input type="checkbox" name="Extreme[]" value="Seile bzw. Ketten tief durch den Schritt gezogen"> Seile bzw. Ketten tief durch den Schritt gezogen</label>
           </div>
-
-          <!-- Eigenen Wunsch Eingabefeld im X-Block -->
-          <label for="extreme_eigener_wunsch" style="display: block; margin-top: 1.5rem; font-weight: bold; color: #ffcc00;">
-            Eigener Wunsch / weitere extreme Idee:
-          </label>
-          <textarea id="extreme_eigener_wunsch" name="extreme_eigener_wunsch" rows="3" placeholder="Hier kannst du eigene extreme Wünsche oder Ideen eintragen..."></textarea>
 
           <div id="countdown" style="margin-top: 1rem;">Block schließt sich in <span id="seconds">10</span> Sekunden...</div>
         </div>
@@ -330,7 +327,6 @@
         <label><input type="checkbox" name="Erklaerung[]" value="demuetig"> Ja, Sklavin 666 macht demütig alles was von ihr verlangt wird</label>
       </div>
 
-      <!-- Persönliche Anmerkungen -->
       <div id="anmerkungenSection">
         <label for="persoenliche_anmerkungen" style="font-weight: bold; color: #ff9999;">
           Persönliche Anmerkungen / Zusätzliche Wünsche / Notizen
@@ -349,195 +345,213 @@
       Ihre Neigungen sind stark ausgeprägt.<br><br>
       Die Wünsche werden berücksichtigt!<br><br>
       !!!Anweisung an Sklavin 666!!!<br>
-      Sklavin 666 erscheint stets devot, geschminkt, entllerter Blase, vollrasiert und komplett (innen) gewaschen zum Termin.<br>
+      Sklavin 666 erscheint stets devot, geschminkt, entleerter Blase, vollrasiert und komplett (innen) gewaschen zum Termin.<br>
       Sklavin 666 nimmt die Sklavinposition ein!!!!.</strong>
     </div>
 
   </div>
 
   <script>
-    const form = document.getElementById('wishlistForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const success = document.getElementById('successMsg');
+    // Alles erst ausführen, wenn das DOM vollständig geladen ist
+    document.addEventListener('DOMContentLoaded', function() {
 
-    const rolleRadios      = document.querySelectorAll('input[name="Rolle"]');
-    const safewordSelect   = document.getElementById('safeword');
-    const confirmNoSafeword = document.getElementById('confirmNoSafeword');
-    const noSafewordDiv    = document.getElementById('noSafewordConfirmation');
-    const erklaerungBoxes  = document.querySelectorAll('input[name="Erklaerung[]"]');
+      const form = document.getElementById('wishlistForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const success = document.getElementById('successMsg');
 
-    const codeInput        = document.getElementById('codeInput');
-    const checkCodeBtn     = document.getElementById('checkCodeBtn');
-    const codeError        = document.getElementById('codeError');
-    const codeSection      = document.getElementById('codeSection');
-    const xContainer       = document.getElementById('xContainer');
-    const extremeX         = document.getElementById('extremeX');
-    const extremeOptions   = document.getElementById('extremeOptions');
-    const countdownEl      = document.getElementById('countdown');
-    const secondsEl        = document.getElementById('seconds');
+      const rolleRadios      = document.querySelectorAll('input[name="Rolle"]');
+      const safewordSelect   = document.getElementById('safeword');
+      const confirmNoSafeword = document.getElementById('confirmNoSafeword');
+      const noSafewordDiv    = document.getElementById('noSafewordConfirmation');
+      const erklaerungBoxes  = document.querySelectorAll('input[name="Erklaerung[]"]');
 
-    const rolleError = document.getElementById('rolleError');
+      const codeInput        = document.getElementById('codeInput');
+      const checkCodeBtn     = document.getElementById('checkCodeBtn');
+      const codeError        = document.getElementById('codeError');
+      const codeSection      = document.getElementById('codeSection');
+      const xContainer       = document.getElementById('xContainer');
+      const extremeX         = document.getElementById('extremeX');
+      const extremeOptions   = document.getElementById('extremeOptions');
+      const countdownEl      = document.getElementById('countdown');
+      const secondsEl        = document.getElementById('seconds');
 
-    let countdownTimer = null;
-    let extremeOpenedOnce = false;
+      const rolleError = document.getElementById('rolleError');
 
-    // Code jetzt 2106
-    checkCodeBtn.addEventListener('click', () => {
-      if (codeInput.value === '2106') {
-        codeSection.style.display = 'none';
-        xContainer.style.display = 'block';
-        codeError.style.display = 'none';
-      } else {
-        codeError.style.display = 'block';
-      }
-    });
-
-    codeInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        checkCodeBtn.click();
-      }
-    });
-
-    function startCountdown() {
-      if (countdownTimer) clearInterval(countdownTimer);
-
+      let countdownTimer = null;
+      let extremeOpenedOnce = false;
       let timeLeft = 10;
-      secondsEl.textContent = timeLeft;
-      countdownEl.style.display = 'block';
 
-      countdownTimer = setInterval(() => {
-        timeLeft--;
-        secondsEl.textContent = timeLeft;
-
-        if (timeLeft <= 0) {
-          clearInterval(countdownTimer);
-          countdownEl.style.display = 'none';
-          extremeX.checked = false;
-          extremeOptions.style.display = 'none';
-          extremeX.disabled = true;
-          extremeOpenedOnce = true;
-          validateAndUpdateButton();
-        }
-      }, 1000);
-    }
-
-    function validateAndUpdateButton() {
-      let valid = true;
-
-      let rolle = document.querySelector('input[name="Rolle"]:checked')?.value;
-      if (rolle === 'DOMINANT') {
-        rolleError.textContent = "Falsche Eingabe von Sklavin 666";
-        rolleError.style.display = 'block';
-        valid = false;
-      } else if (rolle) {
-        rolleError.style.display = 'none';
+      // Schutz: Wenn safeword nicht gefunden → Warnung in Konsole
+      if (!safewordSelect) {
+        console.warn('Element mit id="safeword" wurde nicht gefunden!');
       }
 
-      const sw = safewordSelect.value;
-      noSafewordDiv.classList.toggle('show', sw === 'Kein Safeword');
-      if (sw === 'Kein Safeword' && !confirmNoSafeword.checked) {
-        valid = false;
-      }
-
-      let erkCount = 0;
-      erklaerungBoxes.forEach(cb => { if (cb.checked) erkCount++; });
-      if (erkCount < 1) valid = false;
-
-      if (extremeX.checked && !extremeOpenedOnce) {
-        extremeOptions.style.display = 'block';
-      } else {
-        extremeOptions.style.display = 'none';
-        countdownEl.style.display = 'none';
-        if (countdownTimer) clearInterval(countdownTimer);
-      }
-
-      submitBtn.disabled = !valid;
-    }
-
-    rolleRadios.forEach(r => r.addEventListener('change', validateAndUpdateButton));
-    safewordSelect.addEventListener('change', validateAndUpdateButton);
-    confirmNoSafeword.addEventListener('change', validateAndUpdateButton);
-    erklaerungBoxes.forEach(c => c.addEventListener('change', validateAndUpdateButton));
-
-    extremeX.addEventListener('change', () => {
-      if (extremeX.checked) {
-        if (extremeOpenedOnce) {
-          extremeX.checked = false;
-          alert("X kann nur einmal geöffnet werden.");
-          return;
-        }
-        extremeOptions.style.display = 'block';
-        let anyExtremeChecked = false;
-        document.querySelectorAll('input[name="Extreme[]"]').forEach(cb => {
-          if (cb !== extremeX && cb.checked) anyExtremeChecked = true;
+      // Code-Prüfung (2106)
+      if (checkCodeBtn) {
+        checkCodeBtn.addEventListener('click', () => {
+          if (codeInput && codeInput.value === '2106') {
+            codeSection.style.display = 'none';
+            xContainer.style.display = 'block';
+            if (codeError) codeError.style.display = 'none';
+          } else if (codeError) {
+            codeError.style.display = 'block';
+          }
         });
-        if (!anyExtremeChecked) {
-          startCountdown();
-        }
-      } else {
-        extremeOptions.style.display = 'none';
-        countdownEl.style.display = 'none';
-        if (countdownTimer) clearInterval(countdownTimer);
       }
-      validateAndUpdateButton();
-    });
 
-    document.querySelectorAll('input[name="Extreme[]"]').forEach(cb => {
-      if (cb !== extremeX) {
-        cb.addEventListener('change', () => {
+      if (codeInput) {
+        codeInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            checkCodeBtn.click();
+          }
+        });
+      }
+
+      function startCountdown() {
+        if (countdownTimer) clearInterval(countdownTimer);
+
+        timeLeft = 10;
+        if (secondsEl) secondsEl.textContent = timeLeft;
+        if (countdownEl) countdownEl.style.display = 'block';
+
+        countdownTimer = setInterval(() => {
+          timeLeft--;
+          if (secondsEl) secondsEl.textContent = timeLeft;
+
+          if (timeLeft <= 0) {
+            clearInterval(countdownTimer);
+            if (countdownEl) countdownEl.style.display = 'none';
+            if (extremeX) extremeX.checked = false;
+            if (extremeOptions) extremeOptions.style.display = 'none';
+            if (extremeX) extremeX.disabled = true;
+            extremeOpenedOnce = true;
+            validateAndUpdateButton();
+          }
+        }, 1000);
+      }
+
+      function validateAndUpdateButton() {
+        let valid = true;
+
+        let rolle = document.querySelector('input[name="Rolle"]:checked')?.value;
+        if (rolle === 'DOMINANT') {
+          if (rolleError) {
+            rolleError.textContent = "Falsche Eingabe von Sklavin 666";
+            rolleError.style.display = 'block';
+          }
+          valid = false;
+        } else if (rolle && rolleError) {
+          rolleError.style.display = 'none';
+        }
+
+        const sw = safewordSelect ? safewordSelect.value : '';
+        if (noSafewordDiv) noSafewordDiv.classList.toggle('show', sw === 'Kein Safeword');
+        if (sw === 'Kein Safeword' && confirmNoSafeword && !confirmNoSafeword.checked) {
+          valid = false;
+        }
+
+        let erkCount = 0;
+        erklaerungBoxes.forEach(cb => { if (cb.checked) erkCount++; });
+        if (erkCount < 1) valid = false;
+
+        if (extremeX && extremeX.checked && !extremeOpenedOnce) {
+          if (extremeOptions) extremeOptions.style.display = 'block';
+        } else {
+          if (extremeOptions) extremeOptions.style.display = 'none';
+          if (countdownEl) countdownEl.style.display = 'none';
+          if (countdownTimer) clearInterval(countdownTimer);
+        }
+
+        if (submitBtn) submitBtn.disabled = !valid;
+      }
+
+      rolleRadios.forEach(r => r.addEventListener('change', validateAndUpdateButton));
+      if (safewordSelect) safewordSelect.addEventListener('change', validateAndUpdateButton);
+      if (confirmNoSafeword) confirmNoSafeword.addEventListener('change', validateAndUpdateButton);
+      erklaerungBoxes.forEach(c => c.addEventListener('change', validateAndUpdateButton));
+
+      if (extremeX) {
+        extremeX.addEventListener('change', () => {
           if (extremeX.checked) {
-            let anyChecked = false;
-            document.querySelectorAll('input[name="Extreme[]"]').forEach(c => {
-              if (c !== extremeX && c.checked) anyChecked = true;
-            });
-            if (anyChecked && countdownTimer) {
-              clearInterval(countdownTimer);
-              countdownEl.style.display = 'none';
+            if (extremeOpenedOnce) {
+              extremeX.checked = false;
+              alert("X kann nur einmal geöffnet werden.");
+              return;
             }
+            if (extremeOptions) extremeOptions.style.display = 'block';
+            let anyExtremeChecked = false;
+            document.querySelectorAll('input[name="Extreme[]"]').forEach(cb => {
+              if (cb !== extremeX && cb.checked) anyExtremeChecked = true;
+            });
+            if (!anyExtremeChecked) {
+              startCountdown();
+            }
+          } else {
+            if (extremeOptions) extremeOptions.style.display = 'none';
+            if (countdownEl) countdownEl.style.display = 'none';
+            if (countdownTimer) clearInterval(countdownTimer);
           }
           validateAndUpdateButton();
         });
       }
-    });
 
-    validateAndUpdateButton();
+      // Countdown +5 Sekunden bei jedem Anklicken einer Checkbox im X-Block
+      document.querySelectorAll('#extremeOptions input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          if (this.checked && countdownTimer) {
+            timeLeft += 5;
+            if (secondsEl) secondsEl.textContent = timeLeft;
+          }
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+          // Einmal aktiviert → bleibt aktiviert und deaktiviert
+          if (this.checked) {
+            this.disabled = true;
+          }
+        });
+      });
 
       validateAndUpdateButton();
-      if (submitBtn.disabled) {
-        if (erklaerungBoxes.length > 0 && [...erklaerungBoxes].every(cb => !cb.checked)) {
-          alert("Bitte mindestens eine Erklärung auswählen.");
-        } else {
-          alert("Bitte alle Regeln einhalten.");
-        }
-        return;
-      }
 
-      try {
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          validateAndUpdateButton();
+          if (submitBtn && submitBtn.disabled) {
+            if (erklaerungBoxes.length > 0 && [...erklaerungBoxes].every(cb => !cb.checked)) {
+              alert("Bitte mindestens eine Erklärung auswählen.");
+            } else {
+              alert("Bitte alle Regeln einhalten.");
+            }
+            return;
+          }
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+              form.reset();
+              if (noSafewordDiv) noSafewordDiv.classList.remove('show');
+              if (extremeOptions) extremeOptions.style.display = 'none';
+              if (countdownEl) countdownEl.style.display = 'none';
+              if (countdownTimer) clearInterval(countdownTimer);
+              if (submitBtn) submitBtn.disabled = true;
+              if (success) success.style.display = 'block';
+              if (form) form.style.display = 'none';
+            } else {
+              alert("Fehler beim Senden – bitte später nochmal versuchen.");
+            }
+          } catch (err) {
+            alert("Verbindungsproblem – bitte später nochmal versuchen.");
+          }
         });
-
-        if (response.ok) {
-          form.reset();
-          noSafewordDiv.classList.remove('show');
-          extremeOptions.style.display = 'none';
-          countdownEl.style.display = 'none';
-          if (countdownTimer) clearInterval(countdownTimer);
-          submitBtn.disabled = true;
-          success.style.display = 'block';
-          form.style.display = 'none';
-        } else {
-          alert("Fehler beim Senden – bitte später nochmal versuchen.");
-        }
-      } catch (err) {
-        alert("Verbindungsproblem – bitte später nochmal versuchen.");
       }
+
     });
   </script>
 
