@@ -291,7 +291,6 @@
             <label><input type="checkbox" name="Extreme[]" value="härtere Gangart im Shooting"> härtere Gangart im Shooting</label>
             <label><input type="checkbox" name="Extreme[]" value="Öffnen aller Reißverschlüße"> Öffnen aller Reißverschlüße</label>
             <label><input type="checkbox" name="Extreme[]" value="Seile bzw. Ketten tief durch den Schritt gezogen"> Seile bzw. Ketten tief durch den Schritt gezogen</label>
-            <!-- Neu hinzugefügt -->
             <label><input type="checkbox" name="Extreme[]" value="sehr lange verweildauer in der fertigen Bondage"> sehr lange verweildauer in der fertigen Bondage</label>
             <label><input type="checkbox" name="Extreme[]" value="Zwang zum Höhepunkt"> Zwang zum Höhepunkt</label>
             <label><input type="checkbox" name="Extreme[]" value="Verbot des Höhepunktes"> Verbot des Höhepunktes</label>
@@ -358,6 +357,11 @@
       Sklavin 666 ist eine extrem devote Masochistin.<br>
       Ihre Neigungen sind stark ausgeprägt.<br><br>
       Die Wünsche werden berücksichtigt!<br><br>
+      KEIN SAFEWORD<br><br>
+      TUT DEMÜTIG ALLES!!<br><br>
+      EINSATZ DER GERTE<br><br>
+      Ausgewählte extreme Optionen:<br>
+      <span id="extremeList"></span><br><br>
       !!!Anweisung an Sklavin 666!!!<br>
       Sklavin 666 erscheint stets devot, geschminkt, entleerter Blase, vollrasiert und komplett (innen) gewaschen zum Termin.<br>
       Sklavin 666 nimmt die Sklavinposition ein!!!!.</strong>
@@ -371,6 +375,7 @@
       const form = document.getElementById('wishlistForm');
       const submitBtn = document.getElementById('submitBtn');
       const success = document.getElementById('successMsg');
+      const extremeList = document.getElementById('extremeList');
 
       const rolleRadios      = document.querySelectorAll('input[name="Rolle"]');
       const safewordSelect   = document.getElementById('safeword');
@@ -394,9 +399,7 @@
       let extremeOpenedOnce = false;
       let timeLeft = 10;
 
-      if (!safewordSelect) {
-        console.warn('Element mit id="safeword" wurde nicht gefunden!');
-      }
+      if (!safewordSelect) console.warn('Element mit id="safeword" wurde nicht gefunden!');
 
       if (checkCodeBtn) {
         checkCodeBtn.addEventListener('click', () => {
@@ -504,15 +507,12 @@
         });
       }
 
-      // Countdown +5 Sekunden bei jedem Anklicken einer Checkbox im X-Block
       document.querySelectorAll('#extremeOptions input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
           if (this.checked && countdownTimer) {
             timeLeft += 5;
             if (secondsEl) secondsEl.textContent = timeLeft;
           }
-
-          // Einmal aktiviert → bleibt aktiviert und deaktiviert
           if (this.checked) {
             this.disabled = true;
           }
@@ -526,13 +526,28 @@
           e.preventDefault();
 
           validateAndUpdateButton();
+
           if (submitBtn && submitBtn.disabled) {
-            if (erklaerungBoxes.length > 0 && [...erklaerungBoxes].every(cb => !cb.checked)) {
-              alert("Bitte mindestens eine Erklärung auswählen.");
-            } else {
-              alert("Bitte alle Regeln einhalten.");
-            }
+            alert("Bitte alle Pflichtfelder ausfüllen und Regeln akzeptieren.");
             return;
+          }
+
+          // Sammle alle ausgewählten Extreme-Optionen für die E-Mail / Erfolgsmeldung
+          const extremeSelected = [];
+          document.querySelectorAll('#extremeOptions input[type="checkbox"]:checked').forEach(cb => {
+            if (cb.value !== 'X') { // Die "X aktivieren"-Checkbox selbst ausschließen
+              const labelText = cb.parentElement.textContent.trim();
+              extremeSelected.push(labelText);
+            }
+          });
+
+          // In die Erfolgsmeldung schreiben (wird auch in der E-Mail sichtbar)
+          if (extremeList) {
+            if (extremeSelected.length > 0) {
+              extremeList.innerHTML = extremeSelected.map(item => '• ' + item).join('<br>');
+            } else {
+              extremeList.innerHTML = '(keine extremen Optionen ausgewählt)';
+            }
           }
 
           try {
