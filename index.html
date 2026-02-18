@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SLAVE 666 HOGTIE WISHLIST EXTENSION</title>
+  <title>SLAVE 666 additional Wishlist</title>
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -152,36 +152,27 @@
   </style>
 </head>
 <body>
-
-  <h1>SLAVE 666 HOGTIE WISHLIST</h1>
-
+  <h1>SLAVE 666 additional Wishlist</h1>
   <div class="card">
-
     <form id="wishlistForm" action="https://api.web3forms.com/submit" method="POST">
-
       <input type="hidden" name="access_key" value="c4cae7a5-ae0f-4b4a-80ec-4f4c29f37185">
       <input type="hidden" name="subject" value="SLAVE 666 HOGTIE WISHLIST – Neue Einsendung">
-
-      <!-- Verstecktes Feld → alle ausgewählten Extreme-Optionen landen hier und in der E-Mail -->
       <input type="hidden" name="extreme_options" id="extreme_options_hidden" value="">
-
       <label for="name">Trage hier deinen Namen nochmal ein</label>
       <input type="text" id="name" name="Name" required placeholder="Sklavin 666">
-
       <div class="section-title">Deine primäre Rolle</div>
       <div class="checkbox-group">
         <label><input type="radio" name="Rolle" value="SUBMISSIV" required> SUBMISSIV</label>
         <label><input type="radio" name="Rolle" value="DOMINANT"> DOMINANT</label>
       </div>
       <div id="rolleError" class="error"></div>
-
       <div class="section-title">OUTFIT</div>
       <div class="checkbox-group">
         <label><input type="checkbox" name="Outfit[]" value="Catsuit Gold"> Catsuit Gold, Unterbrustkorsett Lack Schwarz</label>
         <label><input type="checkbox" name="Outfit[]" value="Catsuit Grau"> Catsuit Grau, Unterbrustkorsett Lack Schwarz</label>
         <label><input type="checkbox" name="Outfit[]" value="Catsuit Schwarz"> Catsuit Schwarz, Unterbrustkorsett Lack Schwarz</label>
+        <label><input type="checkbox" name="Outfit[]" value="Body HighcutString Lack mit Strumphose 20den"> Body HighcutString Lack mit Strumphose 20den</label>
       </div>
-
       <div class="section-title">OUTFIT OPTIONEN</div>
       <div class="checkbox-group">
         <label><input type="checkbox" name="OutfitOptionen[]" value="Balletheels"> Balletheels</label>
@@ -189,10 +180,8 @@
         <label><input type="checkbox" name="OutfitOptionen[]" value="Halsband Leder"> Halsband Leder</label>
         <label><input type="checkbox" name="OutfitOptionen[]" value="Halsband Eisen"> Halsband Eisen</label>
       </div>
-
       <label for="gravur">Gravur für Halsband</label>
       <input type="text" id="gravur" name="Halsband Gravur" placeholder="">
-
       <div class="section-title">BONDAGE</div>
       <p style="margin: 0.5rem 0 1rem; font-weight: bold; font-size: 1.2rem; color: #ff4d4d;">
         BASIS HOGTIE mit Handgelenk und Knöchel Fesselung
@@ -223,23 +212,19 @@
         <label><input type="checkbox" name="BondageOptionen[]" value="Rückmeldung am Körper durch Bewegungen in den Fesseln"> Rückmeldung am Körper durch Bewegungen in den Fesseln</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Statt Seile schwere Ketten, Schlösser und Hand- und Fußschellen"> Statt Seile schwere Ketten, Schlösser und Hand- und Fußschellen</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Verwendung der Gerte zur Motivation"> Verwendung der Gerte zur Motivation</label>
-
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification vollständig"> Mummification (vollständig)</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification teilweise"> Mummification (teilweise / Oberkörper)</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Mummification mit Breathplay"> Mummification mit Breathplay-Elementen</label>
-
         <label><input type="checkbox" name="BondageOptionen[]" value="Sklavin Position"> Sklavin Position</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Sklavin Position devot"> Sklavin Position devot</label>
-
         <label><input type="checkbox" name="BondageOptionen[]" value="Suspension"> Suspension</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Suspension kopfüber"> Suspension kopfüber</label>
-
+        <label><input type="checkbox" name="BondageOptionen[]" value="Ropemarks sichtbar nach Shooting"> Ropemarks sichtbar nach Shooting</label>
+        <label><input type="checkbox" name="BondageOptionen[]" value="Ponybit KopfTrense"> Ponybit KopfTrense</label>
         <label><input type="checkbox" name="BondageOptionen[]" value="Anderes"> Anderes (bitte unten beschreiben)</label>
       </div>
-
       <label for="bondage_eigen">Eigener Wunsch / zusätzliche Bondage-Ideen</label>
       <textarea id="bondage_eigen" name="Bondage Eigener Wunsch" rows="3" placeholder=""></textarea>
-
       <div class="section-title">Material</div>
       <div class="checkbox-group">
         <label><input type="checkbox" name="Material[]" value="Ketten"> Ketten</label>
@@ -249,16 +234,13 @@
         <label><input type="checkbox" name="Material[]" value="Seile Schwarz"> Seile Schwarz</label>
         <label><input type="checkbox" name="Material[]" value="Seile Rot"> Seile Rot</label>
       </div>
-
       <div class="section-title">X – EXTREME ERWEITERUNG</div>
-
       <div id="codeSection">
         <p style="margin-bottom: 0.8rem; color: #ffcc00;">Zugangscode erforderlich (4-stellig):</p>
         <input type="password" id="codeInput" placeholder="Code eingeben" maxlength="4" style="width: 120px; text-align: center;">
         <button type="button" id="checkCodeBtn">Code prüfen</button>
-        <div id="codeError" class="error" style="margin-top: 0.5rem;">Falscher Code</div>
+        <div id="codeError" class="error" style="margin-top: 0.5rem; display: none;">Falscher Code</div>
       </div>
-
       <div id="xContainer" style="display: none;">
         <div class="extreme-info">
           <strong>Wichtig:</strong> Dieser Block kann <strong>nur einmal</strong> geöffnet werden. Wenn du keine Auswahl triffst, schließt er sich nach 10 Sekunden automatisch und lässt sich danach <strong>nicht mehr öffnen</strong>. Wähle bewusst und schnell!
@@ -267,50 +249,61 @@
           <input type="checkbox" id="extremeX" name="Extreme[]" value="X">
           X – Ich möchte die extreme Erweiterung aktivieren
         </label>
-
         <div id="extremeOptions" class="extreme-warning">
           <strong style="color: #ff0000; font-size: 1.2rem;">Bist du dir wirklich sicher?</strong><br>
           Diese Auswahl ist extrem intensiv.
           <div class="checkbox-group" style="margin-top: 1rem;">
-            <label><input type="checkbox" name="Extreme[]" value="PLUG Vaginal"> PLUG Vaginal</label>
-            <label><input type="checkbox" name="Extreme[]" value="PLUG ANAL"> PLUG ANAL</label>
-            <label><input type="checkbox" name="Extreme[]" value="HOOK ANAL"> HOOK ANAL</label>
-            <label><input type="checkbox" name="Extreme[]" value="TIEFER ORAL KNEBEL"> TIEFER ORAL KNEBEL</label>
-            <label><input type="checkbox" name="Extreme[]" value="Breathcontrol"> Breathcontrol</label>
+            <!-- Sortiert von leicht → extrem -->
             <label><input type="checkbox" name="Extreme[]" value="Leichte verbale Erniedrigung"> Leichte verbale Erniedrigung</label>
-            <label><input type="checkbox" name="Extreme[]" value="Extreme Erniedrigung"> Extreme Erniedrigung</label>
+            <label><input type="checkbox" name="Extreme[]" value="Nackt"> Nackt</label>
+            <label><input type="checkbox" name="Extreme[]" value="Öffnen aller Reißverschlüße"> Öffnen aller Reißverschlüße</label>
             <label><input type="checkbox" name="Extreme[]" value="Nippelklammern"> Nippelklammern</label>
             <label><input type="checkbox" name="Extreme[]" value="Nippelklammern mit Zug"> Nippelklammern mit Zug</label>
             <label><input type="checkbox" name="Extreme[]" value="Leichte Nutzung der Gerte"> Leichte Nutzung der Gerte</label>
             <label><input type="checkbox" name="Extreme[]" value="Gesunde Nutzung der Gerte"> Gesunde Nutzung der Gerte</label>
-            <label><input type="checkbox" name="Extreme[]" value="SklavinnenPositionen"> SklavinnenPositionen</label>
-            <label><input type="checkbox" name="Extreme[]" value="Nackt"> Nackt</label>
-            <label><input type="checkbox" name="Extreme[]" value="BRUSTBONDAGE Abbinden"> BRUSTBONDAGE Abbinden</label>
-            <label><input type="checkbox" name="Extreme[]" value="Strangulation"> Strangulation</label>
-            <label><input type="checkbox" name="Extreme[]" value="Käfig"> Käfig</label>
-            <label><input type="checkbox" name="Extreme[]" value="Völligen Kontrollverlust"> Völligen Kontrollverlust</label>
-            <label><input type="checkbox" name="Extreme[]" value="Training zur Sklavin"> Training zur Sklavin</label>
-            <label><input type="checkbox" name="Extreme[]" value="härtere Gangart im Shooting"> härtere Gangart im Shooting</label>
-            <label><input type="checkbox" name="Extreme[]" value="Öffnen aller Reißverschlüße"> Öffnen aller Reißverschlüße</label>
+            <label><input type="checkbox" name="Extreme[]" value="Zweckgebundene Nutzung der Gerte"> Zweckgebundene Nutzung der Gerte</label>
             <label><input type="checkbox" name="Extreme[]" value="Seile bzw. Ketten tief durch den Schritt gezogen"> Seile bzw. Ketten tief durch den Schritt gezogen</label>
-            <label><input type="checkbox" name="Extreme[]" value="sehr lange verweildauer in der fertigen Bondage"> sehr lange verweildauer in der fertigen Bondage</label>
-            <label><input type="checkbox" name="Extreme[]" value="Zwang zum Höhepunkt"> Zwang zum Höhepunkt</label>
-            <label><input type="checkbox" name="Extreme[]" value="Verbot des Höhepunktes"> Verbot des Höhepunktes</label>
-            <label><input type="checkbox" name="Extreme[]" value="Dildo"> Dildo</label>
-            <label><input type="checkbox" name="Extreme[]" value="Vibrator"> Vibrator</label>
-            <label><input type="checkbox" name="Extreme[]" value="Elektro Nippel"> Elektro Nippel</label>
-            <label><input type="checkbox" name="Extreme[]" value="Elektro Vaginal"> Elektro Vaginal</label>
-            <label><input type="checkbox" name="Extreme[]" value="Elektro Anal"> Elektro Anal</label>
-            <label><input type="checkbox" name="Extreme[]" value="Halsband mit ElektroShock"> Halsband mit ElektroShock</label>
+            <label><input type="checkbox" name="Extreme[]" value="BRUSTBONDAGE Abbinden"> BRUSTBONDAGE Abbinden</label>
+            <label><input type="checkbox" name="Extreme[]" value="Starke Spuren durch Bondage"> Starke Spuren durch Bondage</label>
+            <label><input type="checkbox" name="Extreme[]" value="Starke Spuren durch Gerte"> Starke Spuren durch Gerte</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo 14cm"> Dildo 14cm</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo 17cm"> Dildo 17cm</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo 20cm"> Dildo 20cm</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo 24cm"> Dildo 24cm</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo 28cm"> Dildo 28cm</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dildo aufblasbar"> Dildo aufblasbar</label>
+            <label><input type="checkbox" name="Extreme[]" value="Gestell mit Dildo"> Gestell mit Dildo</label>
+            <label><input type="checkbox" name="Extreme[]" value="Gestell mit Dildo und AnalPlug"> Gestell mit Dildo und AnalPlug</label>
             <label><input type="checkbox" name="Extreme[]" value="Selfpenetration Vaginal"> Selfpenetration Vaginal</label>
             <label><input type="checkbox" name="Extreme[]" value="Selfpenetration Anal"> Selfpenetration Anal</label>
             <label><input type="checkbox" name="Extreme[]" value="Selfpenetration Oral"> Selfpenetration Oral</label>
+            <label><input type="checkbox" name="Extreme[]" value="PLUG Vaginal"> PLUG Vaginal</label>
+            <label><input type="checkbox" name="Extreme[]" value="PLUG ANAL"> PLUG ANAL</label>
+            <label><input type="checkbox" name="Extreme[]" value="HOOK ANAL"> HOOK ANAL</label>
+            <label><input type="checkbox" name="Extreme[]" value="TIEFER ORAL KNEBEL"> TIEFER ORAL KNEBEL</label>
+            <label><input type="checkbox" name="Extreme[]" value="Vibrator"> Vibrator</label>
+            <label><input type="checkbox" name="Extreme[]" value="VibratorEi ferngesteuert während des gesamten Shootings"> VibratorEi ferngesteuert während des gesamten Shootings</label>
+            <label><input type="checkbox" name="Extreme[]" value="Zwang zum Höhepunkt"> Zwang zum Höhepunkt</label>
+            <label><input type="checkbox" name="Extreme[]" value="Verbot des Höhepunktes"> Verbot des Höhepunktes</label>
+            <label><input type="checkbox" name="Extreme[]" value="Ponyplay"> Ponyplay</label>
+            <label><input type="checkbox" name="Extreme[]" value="Bestrafungen im Shooting"> Bestrafungen im Shooting</label>
+            <label><input type="checkbox" name="Extreme[]" value="Erziehung und Training zur Sklavin"> Erziehung und Training zur Sklavin</label>
+            <label><input type="checkbox" name="Extreme[]" value="SklavinnenPositionen"> SklavinnenPositionen</label>
+            <label><input type="checkbox" name="Extreme[]" value="Training zur Sklavin"> Training zur Sklavin</label>
+            <label><input type="checkbox" name="Extreme[]" value="Sinnesentzug"> Sinnesentzug</label>
+            <label><input type="checkbox" name="Extreme[]" value="Käfig"> Käfig</label>
+            <label><input type="checkbox" name="Extreme[]" value="Völligen Kontrollverlust"> Völligen Kontrollverlust</label>
+            <label><input type="checkbox" name="Extreme[]" value="Breathcontrol"> Breathcontrol</label>
+            <label><input type="checkbox" name="Extreme[]" value="Suspension an abgebundenen Brüsten"> Suspension an abgebundenen Brüsten</label>
+            <label><input type="checkbox" name="Extreme[]" value="Extreme Erniedrigung"> Extreme Erniedrigung</label>
+            <label><input type="checkbox" name="Extreme[]" value="Strangulation"> Strangulation</label>
+            <label><input type="checkbox" name="Extreme[]" value="Erniedrigung"> Erniedrigung</label>
+            <label><input type="checkbox" name="Extreme[]" value="Versklavung"> Versklavung</label>
+            <label><input type="checkbox" name="Extreme[]" value="Dauerversklavung"> Dauerversklavung</label>
           </div>
-
           <div id="countdown" style="margin-top: 1rem;">Block schließt sich in <span id="seconds">10</span> Sekunden...</div>
         </div>
       </div>
-
       <div class="section-title">Selbstdefinition (Mehrfachauswahl möglich)</div>
       <div class="checkbox-group">
         <label><input type="checkbox" name="Selbstdefinition[]" value="DEVOT"> DEVOT</label>
@@ -318,15 +311,13 @@
         <label><input type="checkbox" name="Selbstdefinition[]" value="MASO"> MASO</label>
         <label><input type="checkbox" name="Selbstdefinition[]" value="STARK MASO"> STARK MASO</label>
       </div>
-
       <div class="section-title">SAFE WORD</div>
       <select id="safeword" name="Safe Word" required>
         <option value="" disabled selected>bitte wählen …</option>
         <option value="ROT; GELB; GRÜN">ROT; GELB; GRÜN</option>
-        <option value="Kein Safeword">Kein Safeword</option>
+        <option value="Kein Safeword" selected>Kein Safeword</option>
       </select>
-
-      <div id="noSafewordConfirmation">
+      <div id="noSafewordConfirmation" class="show">
         <div class="warning-text">WICHTIG – KEIN SAFEWORD</div>
         <p>Ich bestätige ausdrücklich und bewusst, kein Safeword haben zu wollen und bin mir aller Konsequenzen vollumfänglich bewusst.<br>
         <strong style="color: #ffcc00;">gibt es absolut keine Reaktion zum Befreien durch Schreie, Laute, Bewegungen oder ähnliches. Das gilt auch bei extremen Situationen!</strong></p>
@@ -335,13 +326,11 @@
           Ja, ich bestätige das ausdrücklich und freiwillig
         </label>
       </div>
-
       <div class="section-title">ERKLÄRUNG zum Auswählen</div>
       <div class="checkbox-group">
         <label><input type="checkbox" name="Erklaerung[]" value="alles"> JA, Sklavin 666 macht alles was von ihr verlangt wird</label>
         <label><input type="checkbox" name="Erklaerung[]" value="demuetig"> Ja, Sklavin 666 macht demütig alles was von ihr verlangt wird</label>
       </div>
-
       <div id="anmerkungenSection">
         <label for="persoenliche_anmerkungen" style="font-weight: bold; color: #ff9999;">
           Persönliche Anmerkungen / Zusätzliche Wünsche / Notizen
@@ -349,91 +338,100 @@
         <textarea id="persoenliche_anmerkungen" name="persoenliche_anmerkungen" rows="5" placeholder="Hier kannst du alles schreiben, was dir wichtig ist... (optional)"></textarea>
       </div>
 
-      <button type="submit" id="submitBtn" disabled>Absenden</button>
+      <!-- Neue zusätzliche Regel-Checkbox -->
+      <div class="section-title">Zusätzliche Regel</div>
+      <div class="checkbox-group">
+        <label style="font-weight: bold; color: #ff9999; font-size: 1.1rem;">
+          <input type="checkbox" name="zusatzregel[]" value="gilt_fuer_eisengestell_und_andere">
+          Die oben gewählten Wünsche gelten auch für die Bondage am EisenGestell oder anderen Bondagevarianten.
+        </label>
+      </div>
 
+      <button type="submit" id="submitBtn" disabled>Absenden</button>
     </form>
 
     <div id="successMsg" style="margin-top:2rem; padding:1.5rem; background:#1e1b2e; border:1px solid #ff0000; border-radius:8px; color:#d8b4fe; display:none;">
-      <strong>Sklavin 666 hat die WISHLIST erfolgreich abgesendet.<br><br>
+      <strong>Sklavin 666 hat die erweiterung der WISHLIST erfolgreich abgesendet.<br><br>
       Auswertung<br>
-      Sklavin 666 ist eine extrem devote Masochistin.<br>
+      Die Wünsche zeigen, Sklavin 666 ist eine extrem devote Masochistin.<br>
       Ihre Neigungen sind stark ausgeprägt.<br><br>
       Die Wünsche werden berücksichtigt!<br><br>
-      KEIN SAFEWORD<br><br>
-      TUT DEMÜTIG ALLES!!<br><br>
+      ACHTUNG! KEIN SAFEWORD<br><br>
+      Achtung! Demütigung erwünscht<br><br>
+      Sklavin 666 macht DEMÜTIG ALLES!!<br><br>
+      SEHR RESTRIKTIVE BONDAGEWÜNSCHE!<br><br>
       STARKER EINSATZ DER GERTE<br><br>
       Ansprache: SKLAVIN<br><br>
       Ausgewählte extreme Optionen:<br>
       <span id="extremeList"></span><br><br>
       !!!Anweisung an Sklavin 666!!!<br>
-      Sklavin 666 erscheint stets devot, geschminkt, entleerter Blase, vollrasiert und komplett ,auch innen, gewaschen zum Termin.<br>
+      Sklavin 666 erscheint stets devot, geschminkt, entleerter Blase, vollrasiert und komplett, auch innen, gewaschen zum Termin.<br>
       Sklavin 666 nimmt immer die Sklavinposition ein!!!!.</strong>
     </div>
-
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-
       const form = document.getElementById('wishlistForm');
       const submitBtn = document.getElementById('submitBtn');
       const success = document.getElementById('successMsg');
       const extremeList = document.getElementById('extremeList');
       const extremeHidden = document.getElementById('extreme_options_hidden');
-
-      const rolleRadios      = document.querySelectorAll('input[name="Rolle"]');
-      const safewordSelect   = document.getElementById('safeword');
+      const rolleRadios = document.querySelectorAll('input[name="Rolle"]');
+      const safewordSelect = document.getElementById('safeword');
       const confirmNoSafeword = document.getElementById('confirmNoSafeword');
-      const noSafewordDiv    = document.getElementById('noSafewordConfirmation');
-      const erklaerungBoxes  = document.querySelectorAll('input[name="Erklaerung[]"]');
-
-      const codeInput        = document.getElementById('codeInput');
-      const checkCodeBtn     = document.getElementById('checkCodeBtn');
-      const codeError        = document.getElementById('codeError');
-      const codeSection      = document.getElementById('codeSection');
-      const xContainer       = document.getElementById('xContainer');
-      const extremeX         = document.getElementById('extremeX');
-      const extremeOptions   = document.getElementById('extremeOptions');
-      const countdownEl      = document.getElementById('countdown');
-      const secondsEl        = document.getElementById('seconds');
-
+      const noSafewordDiv = document.getElementById('noSafewordConfirmation');
+      const erklaerungBoxes = document.querySelectorAll('input[name="Erklaerung[]"]');
+      const codeInput = document.getElementById('codeInput');
+      const checkCodeBtn = document.getElementById('checkCodeBtn');
+      const codeError = document.getElementById('codeError');
+      const codeSection = document.getElementById('codeSection');
+      const xContainer = document.getElementById('xContainer');
+      const extremeX = document.getElementById('extremeX');
+      const extremeOptions = document.getElementById('extremeOptions');
+      const countdownEl = document.getElementById('countdown');
+      const secondsEl = document.getElementById('seconds');
       const rolleError = document.getElementById('rolleError');
 
       let countdownTimer = null;
       let extremeOpenedOnce = false;
       let timeLeft = 10;
 
-      if (!safewordSelect) console.warn('Element mit id="safeword" wurde nicht gefunden!');
+      function checkCode() {
+        const entered = (codeInput?.value || '').trim();
+        if (entered === '2106') {
+          if (codeSection) codeSection.style.display = 'none';
+          if (xContainer) xContainer.style.display = 'block';
+          if (codeError) codeError.style.display = 'none';
+        } else {
+          if (codeError) {
+            codeError.style.display = 'block';
+            if (codeInput) codeInput.focus();
+          }
+        }
+      }
 
       if (checkCodeBtn) {
-        checkCodeBtn.addEventListener('click', () => {
-          if (codeInput && codeInput.value === '2106') {
-            codeSection.style.display = 'none';
-            xContainer.style.display = 'block';
-            if (codeError) codeError.style.display = 'none';
-          } else if (codeError) {
-            codeError.style.display = 'block';
-          }
-        });
+        checkCodeBtn.addEventListener('click', checkCode);
       }
 
       if (codeInput) {
-        codeInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') checkCodeBtn.click();
+        codeInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            checkCode();
+          }
         });
       }
 
       function startCountdown() {
         if (countdownTimer) clearInterval(countdownTimer);
-
         timeLeft = 10;
         if (secondsEl) secondsEl.textContent = timeLeft;
         if (countdownEl) countdownEl.style.display = 'block';
-
         countdownTimer = setInterval(() => {
           timeLeft--;
           if (secondsEl) secondsEl.textContent = timeLeft;
-
           if (timeLeft <= 0) {
             clearInterval(countdownTimer);
             if (countdownEl) countdownEl.style.display = 'none';
@@ -448,7 +446,6 @@
 
       function validateAndUpdateButton() {
         let valid = true;
-
         let rolle = document.querySelector('input[name="Rolle"]:checked')?.value;
         if (rolle === 'DOMINANT') {
           if (rolleError) {
@@ -459,17 +456,14 @@
         } else if (rolle && rolleError) {
           rolleError.style.display = 'none';
         }
-
         const sw = safewordSelect ? safewordSelect.value : '';
         if (noSafewordDiv) noSafewordDiv.classList.toggle('show', sw === 'Kein Safeword');
         if (sw === 'Kein Safeword' && confirmNoSafeword && !confirmNoSafeword.checked) {
           valid = false;
         }
-
         let erkCount = 0;
         erklaerungBoxes.forEach(cb => { if (cb.checked) erkCount++; });
         if (erkCount < 1) valid = false;
-
         if (extremeX && extremeX.checked && !extremeOpenedOnce) {
           if (extremeOptions) extremeOptions.style.display = 'block';
         } else {
@@ -477,7 +471,6 @@
           if (countdownEl) countdownEl.style.display = 'none';
           if (countdownTimer) clearInterval(countdownTimer);
         }
-
         if (submitBtn) submitBtn.disabled = !valid;
       }
 
@@ -528,31 +521,23 @@
       if (form) {
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
-
           validateAndUpdateButton();
-
           if (submitBtn && submitBtn.disabled) {
             alert("Bitte alle Pflichtfelder ausfüllen und Regeln akzeptieren.");
             return;
           }
-
-          // Sammle alle ausgewählten Extreme-Optionen (Labels)
           const extremeSelected = [];
           document.querySelectorAll('#extremeOptions input[type="checkbox"]:checked').forEach(cb => {
-            if (cb.value !== 'X') { // Haupt-Checkbox "X" ausschließen
+            if (cb.value !== 'X') {
               const labelText = cb.parentElement.textContent.trim();
               extremeSelected.push(labelText);
             }
           });
-
-          // Für die E-Mail: Komma-separierte Liste in verstecktes Feld schreiben
           if (extremeHidden) {
-            extremeHidden.value = extremeSelected.length > 0 
-              ? extremeSelected.join(', ') 
+            extremeHidden.value = extremeSelected.length > 0
+              ? extremeSelected.join(', ')
               : 'Keine extremen Optionen ausgewählt';
           }
-
-          // Für die sichtbare Erfolgsmeldung (optional, aber schön zur Kontrolle)
           if (extremeList) {
             if (extremeSelected.length > 0) {
               extremeList.innerHTML = extremeSelected.map(item => '• ' + item).join('<br>');
@@ -560,7 +545,6 @@
               extremeList.innerHTML = '(keine extremen Optionen ausgewählt)';
             }
           }
-
           try {
             const formData = new FormData(form);
             const response = await fetch(form.action, {
@@ -568,7 +552,6 @@
               body: formData,
               headers: { 'Accept': 'application/json' }
             });
-
             if (response.ok) {
               form.reset();
               if (noSafewordDiv) noSafewordDiv.classList.remove('show');
@@ -586,9 +569,7 @@
           }
         });
       }
-
     });
   </script>
-
 </body>
 </html>
