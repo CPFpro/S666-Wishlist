@@ -428,7 +428,7 @@
 
       function startCountdown() {
         if (countdownTimer) clearInterval(countdownTimer);
-        timeLeft = 10;
+        timeLeft = 30;
         if (secondsEl) secondsEl.textContent = timeLeft;
         if (countdownEl) countdownEl.style.display = 'block';
         countdownTimer = setInterval(() => {
